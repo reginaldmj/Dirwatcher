@@ -37,8 +37,7 @@ def create_parser():
     parser.add_argument(
         'm', 'mag', help='specifies the magic text to search for')
     parser.add_argument(
-        'f', 'fil', help='filters what kind of file extension to search'
-        )
+        'f', 'fil', help='filters what kind of file extension to search')
     parser.add_argument(
         'w', 'watch', help='specify the directory to watch')
 
