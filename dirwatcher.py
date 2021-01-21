@@ -3,9 +3,10 @@
 Dirwatcher - A long-running program
 """
 
-__author__ = "Reginald Jefferson"
+__author__ = "Reginald Jefferson, TDD, BabyNames"
 
 import sys
+import argparse
 
 
 def search_for_magic(filename, start_line, magic_string):
@@ -31,7 +32,17 @@ def create_parser():
     parser = argparse.ArgumentParser(
         description='Checking for magic string and logging instances'
     )
-    return
+    parser.add_argument(
+        'i', 'int', help='controls the polling interval')
+    parser.add_argument(
+        'm', 'mag', help='specifies the magic text to search for')
+    parser.add_argument(
+        'f', 'fil', help='filters what kind of file extension to search'
+        )
+    parser.add_argument(
+        'w', 'watch', help='specify the directory to watch')
+
+    return parser
 
 
 def signal_handler(sig_num, frame):
