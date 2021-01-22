@@ -7,6 +7,15 @@ __author__ = "Reginald Jefferson, TDD, BabyNames"
 
 import sys
 import argparse
+import logging
+import signal
+import time
+import os
+
+logger = logging.getLogger(__file__)
+files_logged = []
+magic_text = {}
+stay_running = True
 
 
 def search_for_magic(filename, start_line, magic_string):
@@ -45,12 +54,26 @@ def create_parser():
 
 
 def signal_handler(sig_num, frame):
-    # Your code here
-    return
+    """This is a handler for SIGTERM and SIGINT.
+    Other signals can be mapped here as well (SIGHUP?)
+    Basically, it just sets a global flag, and main()
+    will exit its loop if the signal is trapped.
+    :param sig_num: The integer signal number
+    that was trapped from the OS.:param frame: Not used :return None"""
+
+    # setting up signals, program runs indefinitely unless loop is exited
+    global stay_running
+    sigs = dict((k, v) for v, k in reversed(sorted(signal.__dict__.items()))
+                if v.startswith('SIG') and not v.startswith('SIG_'))
+    logger.warning('Received OS Signal: {}'.format(sigs[sig_num]))
+    stay_running = False
 
 
 def main(args):
-    # Your code here
+    # calling parser
+    parser = create_parser()
+    args = parser.parse_args()
+
     return
 
 
