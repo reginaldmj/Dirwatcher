@@ -3,7 +3,7 @@
 Dirwatcher - A long-running program
 """
 
-__author__ = "Reginald Jefferson, TDD, BabyNames"
+__author__ = "Reginald Jefferson, TDD, BabyNames, docs.python.com, Pete"
 
 import sys
 import argparse
@@ -39,16 +39,16 @@ def create_parser():
     directory to watch (this directory may not yet exist!)"""
 
     parser = argparse.ArgumentParser(
-        description='Checking for magic string and logging instances'
+        description='Watching directory for magic string'
     )
     parser.add_argument(
-        'i', 'int', help='controls the polling interval')
+        'path', help='directory path being watched')
     parser.add_argument(
-        'm', 'mag', help='specifies the magic text to search for')
+        '-e', '--ext', default=".txt", help='extension that will be watched')
     parser.add_argument(
-        'f', 'fil', help='filters what kind of file extension to search')
+        '-i', "--interval", default=1, help='filters what kind of file extension to search')
     parser.add_argument(
-        'w', 'watch', help='specify the directory to watch')
+        'm', 'magic', help='magic text being watched')
 
     return parser
 
