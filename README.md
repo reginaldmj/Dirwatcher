@@ -16,7 +16,7 @@ Example Output
 [MainThread  ]
 -------------------------------------------------------------------
 Beginning dirwatcher.py
-searching for hello in /Users/nicodalfonso/dirwatcher/test
+searching for hello in /Users/reggie/dirwatcher/test
 -------------------------------------------------------------------
 2021-03-22 11:48:59,495 __main__	INFO
 [MainThread  ] Adding test.txt to watchlist
